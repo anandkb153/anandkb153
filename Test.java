@@ -39,9 +39,9 @@ public class Test {
 		}
 		System.out.println(ams);
 		if(n2==ams)
-			System.out.println("Given number is amstrong number");
+			System.out.println("Given number is armstrong number");
 		else
-			System.out.println("Given number is not amstrong number");
+			System.out.println("Given number is not armstrong number");
 
 		
 		
