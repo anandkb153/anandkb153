@@ -1,0 +1,36 @@
+package tamilnadu.chennai;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter  array size");
+		int N =obj.nextInt();
+		System.out.println("Enter"+N + " digit array elements");
+		int A[]=new int[N];
+		for(int i=0;i<N;i++) {
+			
+			A[i]=obj.nextInt();
+			
+		}
+		System.out.println("Enter X value");
+		int X=obj.nextInt();
+		System.out.println("Enter Y value");
+		int Y=obj.nextInt();
+		
+		for(int i=0;i<A.length;i++) {
+			
+			for(int j=X+1;j<Y;j++) {
+				if(A[i]==j) {
+					System.out.println("Output : "+A[i]);
+				}
+			}
+		}
+		
+		
+		
+		
+	 	
+	}
+}
