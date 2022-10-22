@@ -1,0 +1,51 @@
+package tamilnadu.chennai;
+
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter  array size");
+		int N =obj.nextInt();
+		if(N%2==0) {
+			System.out.println("You are enter invalid input, because if you give even you get an error");
+			System.out.println("Please enter odd value only");
+		}
+		else
+		{
+			System.out.println("Enter "+N+" digit array elements");
+			int a[]=new int[N];
+			for(int i=0;i<a.length;i++) {
+				a[i]=obj.nextInt();
+			}
+			
+			int j=2;
+			for(int i=1;i<a.length;i+=2) {
+
+				int temp=a[i];
+				a[i]=a[j];
+				a[j]=temp;
+				j+=2;
+				
+			}
+			
+			
+			System.out.println("Output :");
+			
+			for(int i =0;i<a.length;i++) {
+				System.out.print(a[i]+" ");
+				
+			}
+		
+			
+		}
+	
+		
+
+		
+
+		
+		
+	 	
+	}
+}
