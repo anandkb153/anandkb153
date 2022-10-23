@@ -1,0 +1,50 @@
+package tamilnadu.chennai;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Test {
+	public static void main(String[] args) {
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter  1st word");
+		String s1 =obj.nextLine();
+		System.out.println("Enter  2nd word");
+		String s2 =obj.nextLine();
+		 
+
+          if(s1.length()!=s2.length()) 
+          {
+        	  System.out.println("***.Please enter  your input as same size.***");
+        	  
+          }
+          else
+          {
+		
+        String X=s1.toUpperCase();
+        String Y=s2.toUpperCase();
+        
+        char A[]=X.toCharArray();
+        char B[]=Y.toCharArray();   
+        
+        
+        Arrays.sort(A);
+        Arrays.sort(B);
+        
+        System.out.println(A);
+        System.out.println(B);
+        
+      boolean Final_Answer= Arrays.equals(A, B);
+        
+       
+			
+          if(Final_Answer==true) 
+        	  System.out.println("Given string is Anagram");
+      	else
+      		System.out.println("Given string is not a Anagram");
+       
+
+		
+		}
+	 	
+	}
+}
