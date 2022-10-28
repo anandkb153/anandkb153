@@ -1,0 +1,108 @@
+package tamilnadu.chennai;
+
+import java.util.Scanner;
+
+public class Zoho {
+	public static void main(String[] args) {
+		Scanner obj=new Scanner(System.in);
+		System.out.println("Enter array size");
+		int n=obj.nextInt();
+		System.out.println("Enter "+n+" digit array elements");
+		int arr[]=new int[n];
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=obj.nextInt();
+			
+		}
+		
+		int even_len=0;
+		int[] even=new int[n];
+		int odd_len=0;
+		int[] odd=new int[n];
+		
+		for(int i=0;i<arr.length;i++)
+		{
+			if(i%2==0)
+			{
+				even[even_len]=arr[i];
+				even_len++;
+			}
+			else
+			{
+			odd[odd_len]=arr[i];
+			odd_len++;
+			}
+		}
+		
+		System.out.println("Before sorting");
+		for(int i=0;i<odd_len;i++)
+		{
+			System.out.print(odd[i]+" ");
+		}
+		System.out.println();
+		for(int i=0;i<even_len;i++)
+		{
+			System.out.print(even[i]+" ");
+		}
+		
+		for(int i=0;i<even_len;i++) 
+		{
+			for(int j=0;j<even_len-1;j++)
+			{
+				if(even[j]>even[j+1])
+				{
+					int temp=even[j];
+					even[j]=even[j+1];
+					even[j+1]=temp;
+				}
+			}
+		}
+		
+
+		for(int i=0;i<odd_len;i++) {
+			for(int j=0;j<odd_len-1;j++) {
+
+				if(odd[j]<odd[j+1])
+				{
+					int temp=odd[j];
+					odd[j]=odd[j+1];
+					odd[j+1]=temp;
+				}
+			}
+		}
+		System.out.println();
+		System.out.println("After sorting");
+		for(int i=0;i<odd_len;i++)
+		{
+			System.out.print(odd[i]+" ");
+		}
+		System.out.println();
+		for(int i=0;i<even_len;i++)
+		{
+			System.out.print(even[i]+" ");
+		}
+		System.out.println();
+		
+		
+		int Result[]=new int[odd_len+even_len];
+		int a=0;
+	    for(int i=0;i<Result.length;i+=2)
+		{
+		   Result[i]=even[a];	
+		   a++;
+		}
+	    int b=0;
+	    for(int i=1;i<Result.length;i+=2)
+		{
+		   Result[i]=odd[b];	
+		   b++;
+		}
+	   	System.out.println("After merging sort");
+	    for(int i=0;i<Result.length;i++) {
+	 
+	    	System.out.print(Result[i]+" ");
+	    }
+		
+		
+	}
+	
+}
