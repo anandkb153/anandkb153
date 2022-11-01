@@ -1,0 +1,39 @@
+package tamilnadu.chennai;
+
+import java.util.Scanner;
+
+public class Zoho {
+	public static void main(String[] args) {
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter a string");
+        String s1=obj.nextLine();
+     
+        String vowels="aeiou";
+
+     	int count=0;
+        
+		 for(int i=0;i<s1.length();i++)
+		 {
+		    for(int j=0;j<vowels.length();j++)
+		    {
+		    	if(s1.charAt(i)==vowels.charAt(j))
+		    	{
+		    		count++;
+		    	}
+		    }
+		 
+		 }
+		 
+
+			if(count==0)
+				 System.out.println("No vowels present");
+			else
+				System.out.println(count);
+		 
+		 
+	
+	
+		
+	}
+
+}
