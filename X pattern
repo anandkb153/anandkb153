@@ -1,0 +1,46 @@
+package tamilnadu.chennai;
+
+import java.util.Scanner;
+
+public class Zoho {
+
+	public static void main(String[] args) {
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter a String");// 1 2 3 4 5
+		String s=obj.nextLine();
+//		1       5
+//		  2   4
+//		    3
+//		  2  4
+//		1      5
+		if(s.length()%2==0)
+		{
+			System.out.println("Please assume  the string is of"
+					+ " odd length ");
+		}
+		else
+		{
+			for(int row=0;row<s.length();row++)
+			{
+				for(int col=0;col<s.length();col++)
+				{
+					if(row==col || row+col==s.length()-1)
+						{
+//						System.out.print("*"+" ");
+							System.out.print(s.charAt(col)+" ");
+						}else
+						{
+							System.out.print("  ");
+						}
+						
+				
+					
+				}
+				System.out.println();
+			}
+			 
+		}
+		
+  
+}
+}
