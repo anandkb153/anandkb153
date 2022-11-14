@@ -1,0 +1,60 @@
+package tamilnadu.chennai;
+
+import java.util.Scanner;
+
+public class Zoho {
+
+	public static void main(String[] args) {
+		Scanner obj = new Scanner(System.in);
+		System.out.println("Enter Starting value");
+		int m=obj.nextInt();
+		System.out.println("Enter Ending value");
+		int n=obj.nextInt();
+	 
+		
+//		int X=0;
+		
+		for(int i=m+1;i<n;i++)
+		{
+			int y=0;
+			int x=0;
+			int z=i;
+			int temp=i;
+			
+			while(temp>0)
+			{
+				int rem=temp%10;
+				x+=rem;
+				temp/=10;
+			}
+			
+			int X=x;
+			while(x>0)
+			{
+				int rev=x%10;
+				y=(y*10)+rev;
+				x/=10;
+			}
+			
+				
+			 if(X*y==z)
+			 {
+				
+				System.out.println("Z-Value is = "+z);
+				System.out.println("X-Value is = "+X);
+				System.out.println("Y-Value is = "+y);
+			    System.out.println("Result-Value is = "+(X*y));
+				
+					System.out.println("True");
+					System.out.println("------*------*------*------*------*------*");
+			 }
+			 
+			   
+		}
+
+		
+		
+		
+	
+}
+}
