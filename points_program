@@ -1,0 +1,85 @@
+package tamilnadu.chennai;
+import java.util.Scanner;
+public class Zoho {
+	public static void main(String[] args) {
+		
+			Scanner obj = new Scanner(System.in);
+			System.out.println("Enter array size");
+			int n = obj.nextInt();
+			System.out.println("Enter "+n+" digits array elements");
+			
+			int arr[]=new int[n];
+			int point[]=new int[arr.length];
+			for(int i=0;i<n;i++)
+			{
+				arr[i]=obj.nextInt();
+			}
+			
+			for(int i=0;i<n;i++)
+			{ 
+				int per_sqr=0;
+				int mul_of_6and4=0;
+				int even_num=0;
+				int div=2;
+				int count=0;
+				while(div<arr[i]/2)
+				{
+					if(div*div==arr[i])
+					{
+						count+=per_sqr+5;
+					}
+						div++;
+				}
+				
+				if(arr[i]%6==0 && arr[i]%4==0)
+				{
+					count+=mul_of_6and4+4;
+				}
+				if(arr[i]%2==0)
+				{
+					count+=even_num+3;
+				}
+			
+				point[i]=count;
+//			System.out.print(point[i]+" ");
+//				System.out.println();
+				}
+			for(int a=0;a<point.length;a++)
+			{
+				for(int j=0;j<point.length-1;j++)
+				{
+					if(point[j]<point[j+1])
+					{
+						int temp=point[j];   
+						point[j]=point[j+1];
+						point[j+1]=temp;
+						
+						 temp=arr[j];
+						arr[j]=arr[j+1];
+						arr[j+1]=temp;
+					}
+					else if(point[j]==point[j+1])
+					{
+						if(arr[j]<arr[j+1])
+						{
+
+							int temp=arr[j];
+							arr[j]=arr[j+1];
+							arr[j+1]=temp;
+						}
+						
+					}
+					
+				}
+			}
+			
+			
+			for(int k=0;k<arr.length;k++)
+			{
+				System.out.print(arr[k]+" ");
+			}
+			
+			
+		}
+
+}
