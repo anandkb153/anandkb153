@@ -1,0 +1,63 @@
+package Interview_Programs;
+
+import java.util.Scanner;
+
+public class Solution {
+
+	public static void main(String[] args) {
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Array Size");
+		int array_size = sc.nextInt();
+		// getting input from user
+		int numbers[] = new int[array_size];
+		System.out.println("Enter " + array_size + " Elements");
+		for (int i = 0; i < array_size; i++)
+			numbers[i] = sc.nextInt();
+
+		Solution obj = new Solution();
+		System.out.println(obj.rearrange_the_numbers_in_array(numbers));
+
+	}
+
+	private String rearrange_the_numbers_in_array(int[] numbers) {
+
+		// sorting array
+
+		for (int i = 0; i < numbers.length; i++) {
+			for (int j = i + 1; j < numbers.length; j++) {
+
+				if (numbers[i] > numbers[j]) {
+					int temp = numbers[i];
+					numbers[i] = numbers[j];
+					numbers[j] = temp;
+				}
+
+			}
+		}
+
+		// rearrange the numbers in an array
+
+		for (int i = 0; i < numbers.length; i++) {
+			for (int j = i + 1; j < numbers.length; j++) {
+				String xy = numbers[i] + "" + numbers[j];
+				String yx = numbers[j] + "" + numbers[i];
+
+				if (Integer.parseInt(xy) < Integer.parseInt(yx)) {
+					int temp = numbers[i];
+					numbers[i] = numbers[j];
+					numbers[j] = temp;
+				}
+
+			}
+		}
+
+		String Output = "";
+
+		for (int i = 0; i < numbers.length; i++)
+			Output += numbers[i];
+
+		return Output;
+	}
+
+}
