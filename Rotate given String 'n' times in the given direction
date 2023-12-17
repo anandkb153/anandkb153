@@ -1,0 +1,54 @@
+package Interview_Programs;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+
+class Solution {
+
+	public static void main(String[] args) {
+		Solution obj = new Solution();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter any word");
+		String input = sc.nextLine();
+		System.out.println("Enter Rotation count");
+		int n = sc.nextInt();
+		System.out.println("Enter Rotate Direction(R | L)");
+		char d = sc.next().charAt(0);
+
+		if (n > input.length())
+			n = n / input.length();
+
+		System.out.println("Output => " + obj.Rotate_given_String(input, n, d));
+
+	}
+
+	private String Rotate_given_String(String input, int n, char d) {
+		String output = "";
+		ArrayList<Character> al = new ArrayList<Character>();
+		for (int i = 0; i < input.length(); i++)
+			al.add(input.charAt(i));
+
+		if (d == 'R' || d == 'r') {
+			for (int count = 0; count < n; count++) {
+				al.add(0, al.get(input.length() - 1));
+				al.remove(al.size() - 1);
+			}
+
+			for (Object obj : al)
+				output += obj;
+		}
+
+		if (d == 'L' || d == 'l') {
+			for (int count = 0; count < n; count++) {
+				al.add(al.size(), input.charAt(count));
+				al.remove(0);
+			}
+
+			for (Object obj : al)
+				output += obj;
+
+		}
+
+		return output;
+	}
+}
