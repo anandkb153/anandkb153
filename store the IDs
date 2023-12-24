@@ -1,0 +1,99 @@
+package Interview_Programs;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class Solution {
+
+	public static void main(String[] args) {
+		ArrayList<String> al = new ArrayList<String>();
+		while(true)
+		{
+			System.out.println("1) Add");
+			System.out.println("2) Delete");
+			System.out.println("3) Show");
+			Scanner sc = new Scanner(System.in);
+			System.out.println("Enter any option");
+			int option = sc.nextInt();
+			if (option > 3)
+				System.out.println("Invalid input");
+			else 
+			{
+				
+			
+				if (option == 1) 
+				{
+					System.out.println("Enter email id");
+					String email_id = sc.next();
+					if(Validate_Email_Id(email_id))
+					{
+						al.add(email_id);
+						System.out.println("Sccess : "+email_id+" Is Added");
+						
+					}
+								
+				}
+				else if(option==2)
+				{
+					if(al.size()>0)
+					{
+						System.out.println("we have "+al.size()+" email ids,which one you need to delete");
+						System.out.println("Enter index to delete");
+						int index=sc.nextInt();
+						System.out.println(index);
+						if(index>0)
+						{
+							System.out.println(al.get(index-1)+" is Deleted");
+							al.remove(index-1);
+						}
+						else
+						{
+							System.out.println(al.get(index)+" is Deleted");
+							al.remove(index);
+						}
+					}else
+					{
+						System.out.println("Can not able to delete");
+					}
+					
+				}
+				else
+					System.out.println(al);
+				
+				
+				System.out.println("Do you want to continue(Y or N");
+				char ch=sc.next().charAt(0);
+				if(ch=='N' || ch=='n')
+				{
+					System.out.println("Thank You! Have a nice day");
+					break;
+				}
+			}
+		}
+		
+
+	}
+
+	private static boolean Validate_Email_Id(String email_id) {
+		 
+		
+		Pattern patternObj = Pattern.compile("^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$");   
+		Matcher matcherObj =patternObj.matcher(email_id);
+			boolean condition=false;
+			while(matcherObj.find())    
+			
+//			        System.out.print(matcherObj.group()); 
+			        condition=true; 
+			     
+			  if(condition==false)    
+			  {
+			       System.out.println("invalid email id");  
+			  }
+		
+			  return condition;
+		
+	}
+
+}
