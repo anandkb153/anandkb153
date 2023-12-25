@@ -1,5 +1,6 @@
 package Interview_Programs;
 import java.util.Scanner;
+
 public class Solution {
 
 	public static void main(String[] args) {
@@ -9,25 +10,27 @@ public class Solution {
 		String name_1=sc.nextLine().replaceAll(" ","").toUpperCase();
 		String name_2=sc.nextLine().replaceAll(" ","").toUpperCase();
 		
+		
 		System.out.println(obj.Flames_game(name_1,name_2));
 			
 	}
 
 	private String Flames_game(String name_1, String name_2) {
-		
+		String n1=name_1;
+		String n2=name_2;
 		if(name_1.length()<name_2.length())
 		{
 			String temp=name_1;
 			name_1=name_2;
 			name_2=temp;
 		}
+		
 		for(int i=0;i<name_1.length();i++)
 		{
 			for(int j=0;j<name_2.length();j++)
 			{
 				if(name_1.charAt(i)==name_2.charAt(j))
 				{
-					
 					name_1=name_1.replaceFirst(""+name_1.charAt(i), "");
 					name_2=name_2.replaceFirst(""+name_2.charAt(j), "");
 				}
@@ -42,29 +45,29 @@ public class Solution {
 		{
 			int rmv_ch=actual_input_count%flames.length();
 			
-			
 			if(rmv_ch!=0)
-				flames=flames.substring(rmv_ch)+flames.substring(0,rmv_ch-1);
+				flames=flames.substring(rmv_ch)+flames.substring(0,rmv_ch-1);		
 			else
-				flames=flames.substring(0, flames.length()-1);
-			
-			
+				flames=flames.substring(0,flames.length()-1);
 		}
+		
 		System.out.println(flames);
-		
-		String output="The Relationship between "+name_1+" and "+name_2+" will be ";
-		switch(flames)
+		String output="The Relationship between "+n1+" "+n2+" will be ";
+		switch (flames)
 		{
-		 case "F":output+="Frinedship".toUpperCase();break;
-		 case "L":output+="Love".toUpperCase();break;
-		 case "A":output+="Affection".toUpperCase();break;
-		 case "M":output+="Marriage".toUpperCase();break;
-		 case "E":output+="Enemy".toUpperCase();break;
-		 case "S":output+="Sister".toUpperCase();break;
-		 
-		}
+		case "F":output+="Friendship".toUpperCase();break;
+		case "L":output+="Love".toUpperCase();break;
+		case "A":output+="Affection".toUpperCase();break;
+		case "M":output+="Marriage".toUpperCase();break;
+		case "E":output+="Enemy".toUpperCase();break;
+		case "S":output+="Sister".toUpperCase();break;
 		
+			
+		}
 		return output;
 	}
+
+	
+	
 
 }
