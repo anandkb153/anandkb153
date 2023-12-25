@@ -18,7 +18,7 @@ public class Solution {
 	private String Flames_game(String name_1, String name_2) {
 		String n1=name_1;
 		String n2=name_2;
-		if(name_1.length()<name_2.length())
+		if(name_1.length()>name_2.length())
 		{
 			String temp=name_1;
 			name_1=name_2;
