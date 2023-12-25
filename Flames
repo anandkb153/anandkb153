@@ -18,12 +18,7 @@ public class Solution {
 	private String Flames_game(String name_1, String name_2) {
 		String n1=name_1;
 		String n2=name_2;
-		if(name_1.length()>name_2.length())
-		{
-			String temp=name_1;
-			name_1=name_2;
-			name_2=temp;
-		}
+		
 		
 		for(int i=0;i<name_1.length();i++)
 		{
@@ -31,13 +26,15 @@ public class Solution {
 			{
 				if(name_1.charAt(i)==name_2.charAt(j))
 				{
-					name_1=name_1.replaceFirst(""+name_1.charAt(i), "");
-					name_2=name_2.replaceFirst(""+name_2.charAt(j), "");
+					name_1=name_1.replaceFirst(""+name_1.charAt(i), " ");
+					name_2=name_2.replaceFirst(""+name_2.charAt(j), " ");
+					break;
 				}
 			}
 		}
 		
-		int actual_input_count=(name_1.length()+name_2.length());
+		String final_input=name_1.replaceAll(" ", "")+name_2.replaceAll(" ", "");
+		int actual_input_count=final_input.length();
 		
 		String flames="FLAMES";
 		
@@ -52,7 +49,7 @@ public class Solution {
 		}
 		
 		System.out.println(flames);
-		String output="The Relationship between "+n1+" "+n2+" will be ";
+		String output="The Relationship between "+n1+" and "+n2+" will be ";
 		switch (flames)
 		{
 		case "F":output+="Friendship".toUpperCase();break;
