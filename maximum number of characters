@@ -1,0 +1,46 @@
+package Interview_Programs;
+
+import java.util.Scanner;
+
+public class Solution {
+	
+	public static void main(String[] args) {
+		Solution obj = new Solution();
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter any words");
+		String Input = sc.nextLine();
+		
+		String Output= obj.maximum_number_of_characters(Input);
+		String arr[]=Output.split(" ");
+		int Output_length = Output.length()-2;
+		if(Output_length>1)
+			System.out.println("Output = there are "+Output_length+" characters("+arr[0]+") present between '"+arr[1]+"'");
+		else
+			System.out.println("Output = -1");
+	}
+
+	private String maximum_number_of_characters(String input) {
+		String temp="";
+		int big_length=0;
+		String ch="";
+		for(int i=0;i<input.length();i++)
+		{
+			for(int j=i+1;j<input.length();j++)
+			{
+				if(input.charAt(i)==input.charAt(j))
+				{
+					if(big_length<input.substring(i+1,j).length())
+					{
+						ch=""+input.charAt(i);
+					   temp=input.substring(i+1,j);
+					   big_length=temp.length();
+					   i=j-1;
+					   break;
+					}
+				}
+			}
+		}
+		return temp+" "+ch;
+	}
+
+}
