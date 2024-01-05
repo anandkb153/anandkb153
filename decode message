@@ -1,0 +1,36 @@
+package Interview_Programs;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+class Solution {
+	public String decodeMessage(String key, String message) {
+		String output = "";
+
+		key = key.replaceAll(" ", "");
+
+		ArrayList<Character> input = new ArrayList<Character>();
+		for (int i = 0; i < key.length(); i++) {
+			if (!input.contains(key.charAt(i)))
+				input.add(key.charAt(i));
+		}
+		ArrayList<Character> alphabet = new ArrayList<Character>();
+		for (int i = 0, ch = 'a'; i <= 26; i++)
+			alphabet.add((char) (ch++));
+
+		for (int i = 0; i < message.length(); i++) {
+			if (message.charAt(i) != ' ')
+				output += alphabet.get(input.indexOf(message.charAt(i)));
+			else
+				output += " ";
+		}
+
+		return output;
+
+	}
+
+	public static void main(String[] args) {
+		Solution obj = new Solution();
+		System.out.println(obj.decodeMessage("eljuxhpwnyrdgtqkviszcfmabo", "zwx hnfx lqantp mnoeius ycgk vcnjrdb"));
+	}
+}
