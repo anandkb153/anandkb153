@@ -226,7 +226,7 @@ public class RailwayTicketReservationSystem {
 
 		        if (!racTickets.isEmpty()) {
 		            Passenger confirmedTicket = racTickets.remove(0);
-		            totalRACBerths--;
+		            totalRACBerths++;
 		            bookedTickets.add(new Passenger(confirmedTicket.name, confirmedTicket.age, confirmedTicket.gender, canceledTicket.berthPreference));
 		            System.out.println("Ticket canceled successfully for " + canceledTicket.name );
 		            totalBerths--;
@@ -239,7 +239,7 @@ public class RailwayTicketReservationSystem {
 		            Passenger racCandidate = waitingListTickets.remove(0);
 		            racTickets.add(new Passenger(racCandidate.name, racCandidate.age, racCandidate.gender,"side lower"));
 		            System.out.println("Waiting list passenger moved to RAC.");
-		            totalRACBerths++;
+		            totalRACBerths--;
 		            totalWaitingListTickets++;
 		        }
       
