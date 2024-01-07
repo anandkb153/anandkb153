@@ -1,0 +1,63 @@
+package Interview_Programs;
+
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.Scanner;
+
+public class Solution {
+
+	  public static void main(String[] args) {
+	        Scanner scanner = new Scanner(System.in);
+
+	        System.out.println("Enter any number");
+	        // Read the input N
+	        int N = scanner.nextInt();
+
+	        // Print the spiral matrix starting with 9 in the first row, last column
+	        System.out.println("Output = "+printSpiralMatrix(N));
+
+	        scanner.close();
+	    }
+
+	    public static int printSpiralMatrix(int N) {
+	        int[][] matrix = new int[N][N];
+	        int num = N * N;
+	        int rowStart = 0, rowEnd = N - 1, colStart = 0, colEnd = N - 1;
+
+	        while (num >= 1) {
+	            for (int i = colEnd; i >= colStart; i--) {
+	                matrix[rowStart][i] = num--;
+	            }
+	            rowStart++;
+
+	            for (int i = rowStart; i <= rowEnd; i++) {
+	                matrix[i][colStart] = num--;
+	            }
+	            colStart++;
+
+	            for (int i = colStart; i <= colEnd; i++) {
+	                matrix[rowEnd][i] = num--;
+	            }
+	            rowEnd--;
+
+	            for (int i = rowEnd; i >= rowStart; i--) {
+	                matrix[i][colEnd] = num--;
+	            }
+	            colEnd--;
+	        }
+
+	        int output = 0;
+	        // Print the matrix
+	        for (int i = 0; i < N; i++) {
+	            for (int j = 0; j < N; j++) {
+//	                System.out.print(matrix[i][j] + " ");
+	                if (i == j || i + j == N - 1) {
+	                    output += matrix[i][j];
+	                }
+	            }
+//	            System.out.println();
+	        }
+
+	        return output;
+	    }
+	}
