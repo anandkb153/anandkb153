@@ -1,0 +1,25 @@
+class Solution {
+    public int findMin(int[] nums) {
+          int start=0;
+        int end=nums.length-1;
+
+        while(start<end)
+        {
+            int mid=(start+end)/2;
+
+         if (nums[mid] > nums[end]) {
+                start = mid + 1;
+            }
+            // If the mid element is smaller than the end element, the minimum must be in the left half
+            else if (nums[mid] < nums[end]) {
+                end = mid;
+            }
+            // If nums[mid] and nums[end] are equal, we can't decide whether to search in left or right,
+            // so we decrement the end pointer
+            else {
+                end--;
+            }
+        }
+        return nums[start];
+    }
+}
