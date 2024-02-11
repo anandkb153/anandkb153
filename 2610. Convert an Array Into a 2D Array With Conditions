@@ -1,0 +1,25 @@
+
+class Solution {
+	public List<List<Integer>> findMatrix(int[] nums) {
+		List<List<Integer>> ans = new ArrayList<>();
+		List<Integer> temp = new ArrayList<>();
+		for (int a : nums)
+			temp.add(a);
+
+		while (temp.size() != 0)
+		{
+			ArrayList<Integer> list1 = new ArrayList<Integer>();
+			ArrayList<Integer> list2 = new ArrayList<Integer>();
+			for (int a : temp) 
+			{
+				if (list1.contains(a))
+					list2.add(a);
+				else
+					list1.add(a);
+			}
+			ans.add(list1);
+			temp = list2;
+		}
+		return ans;
+	}
+}
