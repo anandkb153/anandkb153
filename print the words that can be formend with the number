@@ -1,0 +1,41 @@
+package Interview_Programs;
+
+class Solution {
+	private static final String alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+	public static void Find_Possible_Combination(int[] digits, int index, String str) {
+
+		if (index == digits.length) {
+
+			System.out.println(str);
+			return;
+		}
+
+		int sum = 0;
+
+		for (int j = index; j <= digits.length - 1; j++) 
+		{
+			sum = (sum * 10) + digits[j];
+
+			if (sum > 0 && sum <= 26)
+				Find_Possible_Combination(digits, j + 1, str + alphabet.charAt(sum - 1));
+
+		}
+	}
+
+	public static void findCombinations(int[] digits) {
+		if (digits == null || digits.length == 0) {
+			System.out.println("No combination ");
+			return;
+		}
+
+		String str = "";
+		Find_Possible_Combination(digits, 0, str);
+	}
+
+	public static void main(String[] args) {
+		int[] digits = {};
+
+		findCombinations(digits);
+	}
+}
