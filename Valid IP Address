@@ -1,0 +1,76 @@
+class Solution {
+    public String validIPAddress(String IP) {
+        if(IP.length()==0) 
+            return "Neither";
+        
+        if(IP.indexOf(".")>=0) 
+            return validateIPV4(IP);
+        
+        if(IP.indexOf(":")>=0) 
+            return validateIPV6(IP);
+        
+        return "Neither";
+    }
+     private  String validateIPV4(String ip){
+
+          try{
+            if(ip==null || ip.isEmpty())
+                return "Neither";
+            String arr[]=ip.split("\\.");
+                if(arr.length!=4)
+                return "Neither";
+            for(String s :arr)
+            {
+                int no=Integer.parseInt(s);
+                if(no<0 || no>255 ||s.charAt(0)=='0'  && s.length() > 1)
+                   return "Neither";
+            }
+        
+            if(ip.endsWith("."))
+                return "Neither";
+                
+                
+           return "IPv4";
+            
+        }catch(Exception e)
+        {
+            return "Neither";
+        }
+
+    }
+    public String validateIPV6(String ip) 
+    {
+     
+        if(ip == null || ip.isEmpty())
+            return "Neither";
+        
+        String[] arr = ip.split(":");
+        
+        if(arr.length != 8)
+            return "Neither";
+        
+        for(String s : arr) {
+            // Check if the segment is empty or its length exceeds 4 characters
+            if(s.isEmpty() || s.length() > 4)
+                return "Neither";
+            
+            // Check if the segment contains valid hexadecimal characters
+            for(char c : s.toCharArray()) {
+                if(!isHexCharacter(c))
+                    return "Neither";
+            }
+
+             if(ip.endsWith(":"))
+                return "Neither";
+        }
+        
+        return "IPv6";
+   
+ }
+
+  public boolean isHexCharacter(char c) 
+  {
+    return Character.isDigit(c) || (c >= 'a' && c <= 'f') || (c >= 'A' && c <= 'F');
+   }
+
+}
