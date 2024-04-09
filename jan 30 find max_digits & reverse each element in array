@@ -41,23 +41,16 @@ public class Zoho {
 		int max=0;
 		for(int num:input)
 		{
-			int count=find_count(num);
+			int count=0;
+			while(num!=0)
+			{
+				num/=10;
+				count++;
+			}
 			
 			max=Math.max(max, count);
 		}
 		return max;
-	}
-
-	private static int find_count(int num) {
-		
-		int digits_count=0;
-		while(num!=0)
-		{
-			num/=10;
-			digits_count++;
-		}
-		
-		return digits_count;
 	}
 
 }
