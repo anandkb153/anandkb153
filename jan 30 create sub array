@@ -1,0 +1,58 @@
+package Interview_Programs;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Zoho {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the size of big array");
+		int big = sc.nextInt();
+
+		System.out.println("Enter the size of small array");
+		int small = sc.nextInt();
+
+		List<Integer> big_arr = new ArrayList<>();
+		List<Integer> small_arr = new ArrayList<>();
+
+		System.out.println("Enter the elements of the big array");
+		for (int i = 1; i <= big; i++)
+			big_arr.add(sc.nextInt());
+
+		System.out.println("Enter the elements of the small array");
+		for (int i = 1; i <= small; i++)
+			small_arr.add(sc.nextInt());
+
+		int result[] = new int[small];
+		boolean sub_arr=false;
+		for (int i = 0; i < big_arr.size(); i++) {
+			boolean flag = true;
+			int from_Index = i, end_Index = i + small - 1, index = 0;
+			if (i + small <=big) {
+				for (int j = i; j < i + small; j++) {
+					if (small_arr.contains(big_arr.get(j)))
+					{
+						result[index++] = big_arr.get(j);
+						sub_arr=true;
+					}
+					else {
+						flag = false;
+						break;
+					}
+				}
+
+				if (flag)
+					System.out.println(
+							"From Index " + from_Index + " to " + end_Index + " : " + (Arrays.toString(result)));
+			}
+		}
+		
+		if(!sub_arr)
+			System.out.println("No matching sub-array formed");
+
+	}
+
+}
