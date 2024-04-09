@@ -1,0 +1,64 @@
+package Interview_Programs;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+
+public class Zoho {
+
+	public static void main(String[] args) {
+		int input[]= {4,3,70,15,118};
+		
+		//finding max digits:
+		
+		int max_digits=find_max_digits(input);
+		System.out.println("Max Digit : "+max_digits);
+		
+		
+		System.out.println("Result : "+Arrays.toString(reverse_arr_elements(input,max_digits)));
+	}
+
+	public static int[] reverse_arr_elements(int[] input, int max_digits) {
+		int index=0;
+		for(int num:input)
+		{
+			int reverse=0;
+			int multiplier = (int) Math.pow(10, max_digits - 1);
+            while (num != 0) {
+            	reverse += (num % 10) * multiplier;
+                num /= 10;
+                multiplier /= 10;
+            }
+            input[index++] = reverse;
+			
+		
+		}
+		return input;
+	}
+
+	public static int find_max_digits(int[] input) {
+		int max=0;
+		for(int num:input)
+		{
+			int count=find_count(num);
+			
+			max=Math.max(max, count);
+		}
+		return max;
+	}
+
+	private static int find_count(int num) {
+		
+		int digits_count=0;
+		while(num!=0)
+		{
+			num/=10;
+			digits_count++;
+		}
+		
+		return digits_count;
+	}
+
+}
+
